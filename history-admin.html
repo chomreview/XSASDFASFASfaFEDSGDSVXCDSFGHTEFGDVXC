@@ -8,6 +8,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
+    body{font-family:"Noto Sans Thai", sans-serif;}
+      .bg-main{ background-color: #513709; }
+      .text-main{color: #513709;}
+      .bg-sub{ background-color: #FFFCF7; }
+      .bg-sub2{ background-color: #faebd7; }
+      .border-main{ border:2px solid #513709; }
     .loader {
       border-top-color: #4a0890;
       animation: spin 1s linear infinite;
@@ -25,7 +31,7 @@
   </style>
 </head>
 
-<body class="bg-slate-100 min-h-screen flex flex-col">
+<body class="bg-sub min-h-screen flex flex-col">
 
   <!-- Main Content Area -->
   <main class="max-w-md m-auto p-2">
@@ -57,7 +63,7 @@
       </div>
       <div class="p-2">
         <button id="applyFiltersButton"
-          class="mt-5 py-2 px-4 bg-slate-800 text-white rounded-2xl hover:bg-slate-800">กรองข้อมูล</button>
+          class="mt-5 py-2 px-4 bg-main text-white rounded-2xl hover:bg-slate-800">กรองข้อมูล</button>
       </div>
     </div>
     <!-- Card Display Section -->
