@@ -122,8 +122,11 @@
       </div>
       <div>
         <label for="locationFilter" class="block text-xs font-medium text-slate-700">กรองตามสถานที่</label>
-        <input type="text" id="locationFilter" class="mt-1 block w-full p-2 border border-slate-300 rounded-2xl"
-          placeholder="พิมพ์สถานที่">
+ <select id="locationFilter" class="mt-1 block w-full p-2 border border-slate-300 rounded-2xl">
+            <option value="">สถานที่</option>
+            <option value="ลพบุรี">ลพบุรี</option>
+            <option value="ยืนยันแล้ว">สิงห์บุรี</option>            
+          </select>
       </div>
       <button id="applyFiltersButton"
         class="mt-6 py-2 px-4 bg-main text-white rounded-2xl hover:bg-slate-600">คัดกรองข้อมูล</button>
