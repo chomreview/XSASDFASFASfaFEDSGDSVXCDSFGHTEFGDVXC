@@ -5,14 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-      body{font-family:"Noto Sans Thai", sans-serif;}
+    body{font-family:"Noto Sans Thai", sans-serif;}
       .bg-main{ background-color: #513709; }
       .text-main{color: #513709;}
       .bg-sub{ background-color: #FFFCF7; }
@@ -35,10 +31,10 @@
   </style>
 </head>
 
-<body class="bg-sub min-h-screen flex">
+<body class="bg-slate-100 min-h-screen flex">
 
   <!-- Sidebar -->
-  <aside class="w-64 bg-sub text-main shadow-lg p-6">
+  <aside class="w-64 bg-white text-slate-800 shadow-lg p-6">
     <h2 class="text-md font-bold mb-4">ดอกเตอร์ชมคลีนิก</h2>
     <p class="text-sm font-bold mb-4">รายชื่อสมาชิก</p>
 
@@ -66,7 +62,7 @@
       <div class="space-y-4 p-4 bg-slate-50 rounded-2xl">
         <!-- Add Button to Insert Data into Table -->
         <button id="addDataButton"
-          class="w-full py-2 px-4 bg-slate-600 text-white font-semibold rounded-2xl hover:bg-slate-400">เพิ่มการนัดหมาย</button>
+          class="w-full py-2 px-4 bg-main text-white font-semibold rounded-2xl hover:bg-slate-400">เพิ่มการนัดหมาย</button>
 
         <!-- Profile Picture -->
         <div class="flex justify-center">
@@ -192,7 +188,7 @@
     </div>
   </div>
   <!-- Loading Spinner -->
-  <div id="loadingSpinner" class="fixed inset-0 bg-gray-100 bg-opacity-50 flex items-center justify-center hidden">
+  <div id="loadingSpinner" class="fixed inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center hidden">
     <div class="loader"></div>
   </div>
 
@@ -248,15 +244,15 @@
               // Populate the row with data and disabled buttons as necessary
               row.innerHTML = `
             <td class="hidden">${detail.userlineid}</td> <!-- Hide the userlineid -->
-            <td class="px-4 py-2 border border-slate-100">${detail.name}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.service}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.locationservice}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.phonenumber}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.note}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.date}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.time}</td>
-            <td class="px-4 py-2 border border-slate-100">${detail.status}</td>
-            <td class="px-4 py-2 border border-slate-100">
+            <td class="px-4 py-2 border">${detail.name}</td>
+            <td class="px-4 py-2 border">${detail.service}</td>
+            <td class="px-4 py-2 border">${detail.locationservice}</td>
+            <td class="px-4 py-2 border">${detail.phonenumber}</td>
+            <td class="px-4 py-2 border">${detail.note}</td>
+            <td class="px-4 py-2 border">${detail.date}</td>
+            <td class="px-4 py-2 border">${detail.time}</td>
+            <td class="px-4 py-2 border">${detail.status}</td>
+            <td class="px-4 py-2 border">
               <button class="confirm-btn bg-green-500 text-white px-2 py-1 rounded-2xl ${disableConfirm ? 'opacity-50 cursor-not-allowed' : ''}" ${disableConfirm ? 'disabled' : ''} data-id="${detail.idKey}">ยืนยัน</button>
               <button class="cancel-btn bg-red-500 text-white px-2 py-1 rounded-2xl ${disableCancel ? 'opacity-50 cursor-not-allowed' : ''}" ${disableCancel ? 'disabled' : ''} data-id="${detail.idKey}">ยกเลิก</button>
               <button class="complete-btn bg-blue-500 text-white px-2 py-1 rounded-2xl ${disableComplete ? 'opacity-50 cursor-not-allowed' : ''}" ${disableComplete ? 'disabled' : ''} data-id="${detail.idKey}">เสร็จสิ้น</button>
