@@ -7,9 +7,31 @@
     <title>ลงทะเบียน</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+      body{font-family:"Noto Sans Thai", sans-serif;}
+        .bg-main{ background-color: #513709; }
+        .text-main{color: #513709;}
+        .bg-sub{ background-color: #FFFCF7; }
+        .bg-sub2{ background-color: #faebd7; }
+        .border-main{ border:2px solid #513709; }
+      .loader {
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        border-top: 8px solid #ffffff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+      }
+  
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
 </head>
 <body>
-<div class="bg-slate-100">
+<div class="bg-sub">
     <div class="flex items-center justify-center max-w-md mx-auto min-h-screen">
         <form>
                 <div class="mb-5 text-center">
@@ -25,7 +47,7 @@
                 </div>
               
                 <div class="flex items-center space-x-2 mb-4">
-                    <input type="text" class="input-field w-full bg-slate-800 p-2 text-gray-100 text-xs text-center rounded-2xl" id="userlineId" placeholder="lineId" name="userlineId" >
+                    <input type="text" class="input-field w-full bg-sub2 p-2 text-gray-100 text-xs text-center rounded-2xl" id="userlineId" placeholder="lineId" name="userlineId" >
                 </div>
                 <div class="flex items-center space-x-2 mb-4">
                     <input type="text" class="input-field w-full border border-white px-4 py-2 text-md rounded-2xl" id="nameId" placeholder="ชื่อ-สกุล" name="nameId" required>
@@ -36,7 +58,7 @@
                 <div class="flex items-center space-x-2 mb-6">
                     <input type="text" class="input-field w-full border border-white px-4 py-2 text-md rounded-2xl" id="keynumber2Id" placeholder="เพิ่มเติม(ถ้ามี)" name="keynumber2Id" >
                 </div>
-                <button type="button" id="submitBtn" class="bg-slate-800  text-center w-full text-white p-4 rounded-2xl hover:bg-blue-700">บันทึกข้อมูล</button>
+                <button type="button" id="submitBtn" class="bg-main  text-center w-full text-white p-4 rounded-2xl hover:bg-blue-700">บันทึกข้อมูล</button>
         </form>
     </div>
 </div>
