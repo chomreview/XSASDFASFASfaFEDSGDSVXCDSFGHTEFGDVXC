@@ -5,39 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ลงทะเบียน</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <style>
-        body{font-family:"Noto Sans Thai", sans-serif;}
-        .bg-main{ background-color: #513709; }
-        .text-main{color: #513709;}
-        .bg-sub{ background-color: #FFFCF7; }
-        .bg-sub2{ background-color: #faebd7; }
-        .border-main{ border:2px solid #513709; }
-    </style>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
-<div class="bg-sub">
+<div class="bg-slate-100">
     <div class="flex items-center justify-center max-w-md mx-auto min-h-screen">
         <form>
                 <div class="mb-5 text-center">
                     <div class="mx-auto w-32 h-32 mb-2 border rounded-2xl relative bg-gray-100 mb-4 shadow-inset">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Default Image" id="preview" class="h-32 w-32 object-cover rounded-2xl">
                     </div>
-                    <label for="file" class="cursor-pointer inline-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-2xl shadow-sm text-left text-main bg-white hover:bg-gray-100 font-medium">
+                    <label for="file" class="cursor-pointer inline-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-2xl shadow-sm text-left text-gray-600 bg-white hover:bg-gray-100 font-medium">
                         <img src="https://img.icons8.com/?size=100&id=748&format=png&color=000000" class="w-6 h-6 mx-1">
                         อัพโหลดรูป
                         <input type="file" id="file" name="file" accept="image/*" class="hidden">
                     </label>
-                    <div class="mx-auto w-48 text-main text-xs text-center mt-1">คลิกเพื่ออัพโหลดรูปของคุณ</div>
+                    <div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">คลิกเพื่ออัพโหลดรูปของคุณ</div>
                 </div>
               
                 <div class="flex items-center space-x-2 mb-4">
-                    <input type="text" class="input-field w-full bg-main p-2 text-gray-100 text-xs text-center rounded-2xl" id="userlineId" placeholder="lineId" name="userlineId" >
+                    <input type="text" class="input-field w-full bg-slate-800 p-2 text-gray-100 text-xs text-center rounded-2xl" id="userlineId" placeholder="lineId" name="userlineId" >
                 </div>
                 <div class="flex items-center space-x-2 mb-4">
                     <input type="text" class="input-field w-full border border-white px-4 py-2 text-md rounded-2xl" id="nameId" placeholder="ชื่อ-สกุล" name="nameId" required>
@@ -48,7 +36,7 @@
                 <div class="flex items-center space-x-2 mb-6">
                     <input type="text" class="input-field w-full border border-white px-4 py-2 text-md rounded-2xl" id="keynumber2Id" placeholder="เพิ่มเติม(ถ้ามี)" name="keynumber2Id" >
                 </div>
-                <button type="button" id="submitBtn" class="bg-main  text-center w-full text-white p-4 rounded-2xl hover:bg-blue-700">บันทึกข้อมูล</button>
+                <button type="button" id="submitBtn" class="bg-slate-800  text-center w-full text-white p-4 rounded-2xl hover:bg-blue-700">บันทึกข้อมูล</button>
         </form>
     </div>
 </div>
@@ -61,7 +49,7 @@ const LIFF_ID = '2006133362-lxv86gVy'; // LIFF ID
 
 // ฟังก์ชันเริ่มต้น LIFF SDK
 window.onload = function () {
-     initializeLiff();
+    initializeLiff();
 };
 
 // ฟังก์ชันสำหรับเริ่มต้น LIFF SDK
