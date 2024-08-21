@@ -143,7 +143,7 @@
         <select id="locationFilter" class="mt-1 block w-full p-2 border border-slate-300 rounded-2xl">
           <option value="">สถานที่</option>
           <option value="ลพบุรี">ลพบุรี</option>
-          <option value="ยืนยันแล้ว">สิงห์บุรี</option>
+          <option value="สิงห์บุรี">สิงห์บุรี</option>
         </select>
       </div>
       <div>
@@ -169,7 +169,7 @@
             <th class="px-4 py-2 border border-slate-100">บริการ</th>
             <th class="px-4 py-2 border border-slate-100">สถานที่</th>
             <th class="px-4 py-2 border border-slate-100">เบอร์โทร</th>
-            <th class="px-4 py-2 border border-slate-100">อีเมล</th>
+            <th class="px-4 py-2 border border-slate-100">หมายเหตุ</th>
             <th class="px-4 py-2 border border-slate-100">วันที่</th>
             <th class="px-4 py-2 border border-slate-100">เวลา</th>
             <th class="px-4 py-2 border border-slate-100">สถานะ</th>
@@ -229,6 +229,7 @@
   </div>
 
   <script>
+
     const PROFILE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpMhWdIuNQqLzPj8DLs4jh2zrGk5N9k4-_7PwTS23ULcmF2n_h4QetfcIVV7hx0Jk/exec';
     const DETAILS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPHUFlrLbGCtR0oXfM5ZKMZrhxB1foSLtpX4L9t2g8fiNpfBDEcYPJ9WaUhf8sInY2/exec';
 
@@ -332,15 +333,17 @@
         const [day, month, year] = dateStr.split('-');
         return new Date(`${year}-${month}-${day}`);
       }
+// ฟังก์ชันแปลงวันที่จาก YYYY-MM-DD เป็น DD-MM-YYYY เพื่อแสดงผล
+function convertToDisplayDate(dateStr) {
+    // Check if the date is in YYYY-MM-DD format
+    if (/\d{4}-\d{2}-\d{2}/.test(dateStr)) {
+        const [year, month, day] = dateStr.split('-');
+        return `${day}-${month}-${year}`;
+    }
+    // If the date is already in DD-MM-YYYY format or another format, return it as is
+    return dateStr;
+}
 
-      // ฟังก์ชันแปลงวันที่จาก YYYY-MM-DD เป็น DD-MM-YYYY เพื่อแสดงผล
-      function convertToDisplayDate(dateStr) {
-        if (dateStr.includes('-')) {
-          const [year, month, day] = dateStr.split('-');
-          return `${day}-${month}-${year}`;
-        }
-        return dateStr; // Return as is if the format doesn't match
-      }
 
       // ฟังก์ชันแสดงปุ่มควบคุมการแบ่งหน้า
       function renderPaginationControls() {
@@ -393,15 +396,20 @@
 
       // ฟังก์ชันหลักในการดึงข้อมูลและกรอง
       function fetchAndPopulateTable() {
+  showLoadingSpinner(true); // Show loading spinner
+
         fetch(`${DETAILS_SCRIPT_URL}?action=fetchBookings`)
-          .then(response => response.json())
-          .then(details => {
+            .then(response => response.json())
+            .then(details => {
             applyFilters(details);
-          })
-          .catch(error => {
+            })
+            .catch(error => {
             console.error('Error fetching user details:', error);
-          });
-      }
+            })
+            .finally(() => {
+            showLoadingSpinner(false); // Hide loading spinner after the data is fetched
+            });
+        }
 
       // เรียกใช้ฟังก์ชันเมื่อผู้ใช้คลิกปุ่มคัดกรองข้อมูล
       document.getElementById('applyFiltersButton').addEventListener('click', function () {
