@@ -143,7 +143,7 @@
                 <div class="flex mb-4">
                     <span class="bg-white flex items-center border rounded-2xl p-2 mr-2 w-32">
                         <img src="https://img.icons8.com/?size=100&id=Ynh2i0jcHfB4&format=png&color=000000" class="w-6 h-6 mr-1">
-                        <span class="text-black"> สถานที่ </span>
+                        <span class="text-black"> สาขา </span>
                     </span>
                     <select id="locationservice" name="locationservice" class="rounded-2xl bg-white border text-gray-900 block flex-1 px-4 w-full" placeholder="ตัวเลือกสถานที่"></select>
                 </div>
@@ -492,7 +492,7 @@
                     timeInput.value = time.padStart(5, '0');
                     showPopup('ยืนยันการนัดหมาย', `
                         <p>บริการ: ${form.service.value}</p>
-                        <p>สถานที่: ${form.locationservice.value}</p>
+                        <p>สาขา: ${form.locationservice.value}</p>
                         <p>ชื่อ: ${form.name.value}</p>
                         <p>เบอร์ติดต่อ: ${form.phonenumber.value}</p>
                         <p>อีเมล: ${form.note.value}</p>
@@ -548,7 +548,7 @@
             }
             showPopup('<p class="text-blue-900">📆 ยืนยันการนัดหมาย</p>', `
                 <p>บริการ: ${form.service.value}</p>
-                <p>สถานที่: ${form.locationservice.value}</p>
+                <p>สาขา: ${form.locationservice.value}</p>
                 <p>ชื่อ: ${form.name.value}</p>
                 <p>เบอร์ติดต่อ: ${form.phonenumber.value}</p>
                 <p>เพิ่มเติม: ${form.note.value}</p>
